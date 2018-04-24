@@ -1,12 +1,11 @@
 package cursor.rybak.models;
 
 public class FireStation {
-    private boolean isCalm = true;
+    private volatile boolean isCalm = true;
 
     public synchronized void getStatus() {
         if (isCalm) {
             try {
-                notify();
                 System.out.println("OFFICER ---> Nice quite day)");
                 wait();
             } catch (InterruptedException e) {
